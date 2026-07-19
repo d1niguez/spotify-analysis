@@ -11,7 +11,7 @@ st.set_page_config(page_title="Spotify Mood Analysis", page_icon="🎵", layout=
 def load_data():
     import gdown
     url = "https://drive.google.com/uc?id=1-rPeGOLobO0F8TBmf2hdlMuJtC66lbmi"
-    gdown.download(url, 'tracks.csv', quiet=True, fuzzy=True)
+    gdown.download(url, 'tracks.csv', quiet=True)
     df = pd.read_csv('tracks.csv')
     df['year'] = pd.to_datetime(df['release_date'], errors='coerce').dt.year
     df = df[(df['year'] >= 1960) & (df['year'] <= 2020)]
