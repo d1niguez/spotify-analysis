@@ -9,7 +9,8 @@ st.set_page_config(page_title="Spotify Mood Analysis", page_icon="🎵", layout=
 # ── Load data ──
 @st.cache_data
 def load_data():
-    df = pd.read_csv('tracks.csv')
+    url = "https://raw.githubusercontent.com/d1niguez/spotify-analysis/main/data/tracks.csv"
+    df = pd.read_csv(url)
     df['year'] = pd.to_datetime(df['release_date'], errors='coerce').dt.year
     df = df[(df['year'] >= 1960) & (df['year'] <= 2020)]
     df['decade'] = (df['year'] // 10 * 10).astype(int)
