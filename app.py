@@ -21,8 +21,8 @@ def load_data():
 df = load_data()
 
 # ── Header ──
-st.title("🎵 Has Music Gotten Sadder?")
-st.markdown("Analyzing 500,000+ Spotify tracks from 1960–2020")
+st.title("♪ Has Music Gotten Sadder?")
+st.markdown(f"Analyzing {len(df):,} Spotify tracks from 1960–2020")
 st.divider()
 
 # ── KPIs ──
@@ -100,7 +100,7 @@ st.pyplot(fig4)
 st.divider()
 
 # ── Feature 4: What decade does your taste belong to? ──
-st.subheader("🎧 What Decade Does Your Taste Belong To?")
+st.subheader("☊ What Decade Does Your Taste Belong To?")
 st.markdown("Move the sliders to match your music preferences:")
 
 c1, c2 = st.columns(2)
@@ -132,5 +132,5 @@ descriptions = {
     2020: "You belong in the 2020s — bedroom pop and hyperpop. Experimental and introspective."
 }
 
-st.success(f"🎵 Your taste belongs in the **{best_decade}s**")
+st.success(f"ᯓ♪ Your taste belongs in the **{best_decade}s**")
 st.info(descriptions.get(best_decade, "A unique decade all your own."))
