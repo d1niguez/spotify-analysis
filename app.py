@@ -6,17 +6,18 @@ import seaborn as sns
 # ── Page config ──
 st.set_page_config(page_title="Spotify Mood Analysis", page_icon="🎵", layout="wide")
 
-# ── Load data ──
 @st.cache_data
 def load_data():
     import gdown
-    url = "https://drive.google.com/uc?id=1-rPeGOLobO0F8TBmf2hdlMuJtC66lbmi"
-    gdown.download(url, 'tracks.csv', quiet=True)
-    df = pd.read_csv('tracks.csv')
+    url = "https://drive.google.com/uc?id=1RHQ_jm6suE_0Zb2CDJwj1jMGLZ4xnvuN"
+    output = "/tmp/tracks.csv"
+    gdown.download(url, output, quiet=True)
+    df = pd.read_csv(output)
     df['year'] = pd.to_datetime(df['release_date'], errors='coerce').dt.year
     df = df[(df['year'] >= 1960) & (df['year'] <= 2020)]
     df['decade'] = (df['year'] // 10 * 10).astype(int)
     return df
+
 df = load_data()
 
 # ── Header ──
